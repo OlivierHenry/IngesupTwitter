@@ -1,5 +1,19 @@
-<%= form_tag(:controller => "posts", :action => "create") do %>  
+
+
+<%= form_tag({:controller => "posts", :action => "create"}, :id => "formTwit") do %>  
   <%= label_tag(:message, "What are you doing?") %><br />  
   <%= text_area_tag(:message, nil, :size => "44x6") %><br />  
   <%= submit_tag("Update") %>  
 <% end %>  
+
+<script>
+$(document).ready(function() {
+	$('#formTwit').submit(function() {
+		alert('Votre message a ete envoye.');
+		socket.emit('new message', { my: 'toto' });
+		return true;
+	});
+});
+
+
+</script>

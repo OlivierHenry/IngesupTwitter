@@ -1,2 +1,14 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="./socket.io/socket.io.js"></script>
+<script type="text/javascript">
+  var socket = io.connect('http://localhost:1337');
+  socket.on('refresh', function (data) {
+	alert('data.');
+	//set a div with the content of the new message
+	location.reload();
+	
+})
+</script>
+
 <b><%= render :partial => "message_form" %></b> 
 <%= render :partial => @posts %>
